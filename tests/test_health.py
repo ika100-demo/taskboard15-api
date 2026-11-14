@@ -11,8 +11,8 @@ def test_health_returns_ok(client: TestClient) -> None:
     assert response.json() == {"status": "ok"}
 
 
-def test_ready_returns_ready(client: TestClient) -> None:
-    response = client.get("/ready")
+def test_ready_returns_ready(task_client: TestClient) -> None:  # AC-002.6
+    response = task_client.get("/ready")
     assert response.status_code == 200
     assert response.json() == {"status": "ready"}
 

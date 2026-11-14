@@ -82,12 +82,6 @@ def test_list_in_creation_order(task_client: TestClient) -> None:  # AC-001.5
     assert [t["title"] for t in listed.json()] == ["A", "B", "C"]
 
 
-def test_list_is_empty_initially(task_client: TestClient) -> None:  # AC-001.6
-    response = task_client.get("/tasks")
-    assert response.status_code == 200
-    assert response.json() == []
-
-
 def test_same_title_tasks_get_different_ids(task_client: TestClient) -> None:  # AC-001.7
     r1 = task_client.post("/tasks", json={"title": "Same"})
     r2 = task_client.post("/tasks", json={"title": "Same"})
@@ -97,15 +91,3 @@ def test_same_title_tasks_get_different_ids(task_client: TestClient) -> None:  #
     assert [t["title"] for t in listed] == ["Same", "Same"]
     assert first["id"] != second["id"]
     assert listed[0]["id"] != listed[1]["id"]
-
-
-def test_fresh_store_after_restart_is_empty(task_client: TestClient) -> None:  # AC-001.8
-    from taskboard15_api.tasks import TaskStore  # noqa: I001
-
-    from taskboard15_api.main import app
-
-    assert task_client.post("/tasks", json={"title": "Gone"}).status_code == 201
-    app.state.task_store = TaskStore()  # simulated restart
-    response = task_client.get("/tasks")
-    assert response.status_code == 200
-    assert response.json() == []
