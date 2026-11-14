@@ -1,7 +1,7 @@
 ---
 spec_id: 002-store-tasks-in-postgres-instead-of
 title: Store tasks in Postgres instead of memory
-status: building
+status: done
 priority: P1
 shape: service-python
 parent: ika100-demo/taskboard15-gitops:001-persistent-tasks-in-postgres-shown-and
@@ -131,3 +131,4 @@ The 422 validation and the existing criteria AC-001.1 to AC-001.5 and AC-001.7 s
 - 2026-11-14 created from the system plan, with its criteria (spec 147)
 - 2026-11-14 approved
 - 2026-11-14 building
+- 2026-11-14 done
