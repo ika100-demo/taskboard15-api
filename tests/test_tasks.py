@@ -100,7 +100,7 @@ def test_same_title_tasks_get_different_ids(task_client: TestClient) -> None:  #
 
 
 def test_fresh_store_after_restart_is_empty(task_client: TestClient) -> None:  # AC-001.8
-    from taskboard15_api.tasks import TaskStore
+    from taskboard15_api.tasks import TaskStore  # noqa: I001
 
     from taskboard15_api.main import app
 
