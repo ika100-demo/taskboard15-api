@@ -13,7 +13,7 @@ Configuration is read exclusively from environment variables. Defaults below are
 
 | Variable | Default | Description |
 |---|---|---|
-| `DATABASE_URL` | _(unset — not ready)_ | libpq URI of the Postgres database, e.g. `postgresql://user:pass@host:5432/db`. Unset or empty: `/ready` and `/tasks` answer `503`, `/health` stays `200`. Injected by the gitops entry's `postgres` resource. |
+| `DATABASE_URL` | _(unset — not ready)_ | libpq URI of the Postgres database, e.g. `postgresql://user@host:5432/db`. Unset or empty: `/ready` and `/tasks` answer `503`, `/health` stays `200`. Injected by the gitops entry's `postgres` resource. |
 
 ## Observability
 

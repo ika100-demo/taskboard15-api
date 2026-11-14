@@ -81,7 +81,7 @@ Unchanged from spec 001 except the status codes below; the spec's Contract secti
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `DATABASE_URL` | unset | libpq URI, e.g. `postgresql://user:pass@host:5432/db`; unset means not ready and `503` on `/tasks` |
+| `DATABASE_URL` | unset | libpq URI, e.g. `postgresql://user@host:5432/db`; unset means not ready and `503` on `/tasks` |
 
 ## Data
 
