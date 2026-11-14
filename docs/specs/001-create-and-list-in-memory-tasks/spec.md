@@ -25,9 +25,9 @@ As an API client, I want to list all tasks, so that I can show what has been rec
 - **AC-001.3** Given a running service, when a client sends `POST /tasks` with `title` missing, not a string, empty, only whitespace, or longer than 200 characters, then the response is `422` with an error body naming the `title` field, and no task is created (a following `GET /tasks` does not contain it).
 - **AC-001.4** Given a running service, when a client sends `POST /tasks` with a `due_date` that is not a valid calendar date in `YYYY-MM-DD` form (for example "2026-02-30", "01.12.2026" or "tomorrow"), then the response is `422` with an error body naming the `due_date` field, and no task is created.
 - **AC-001.5** Given tasks were created in the order A, B, C, when a client sends `GET /tasks`, then the response is `200` with a JSON array of exactly those tasks in creation order (A first), each with `id`, `title` and `due_date` as returned on creation. (smoke)
-- **AC-001.6** Given no task has been created since the service started, when a client sends `GET /tasks`, then the response is `200` with an empty JSON array.
+- ~~**AC-001.6**~~ superseded by AC-002.2 on 2026-11-14: Given no task has been created since the service started, when a client sends `GET /tasks`, then the response is `200` with an empty JSON array.
 - **AC-001.7** Given two tasks created with the same title, when they are listed, then both appear, each with a different `id`.
-- **AC-001.8** Given tasks were created, when the service restarts, then `GET /tasks` returns an empty array (tasks live only in memory).
+- ~~**AC-001.8**~~ superseded by AC-002.1 on 2026-11-14: Given tasks were created, when the service restarts, then `GET /tasks` returns an empty array (tasks live only in memory).
 
 ## Non-goals
 
@@ -58,3 +58,5 @@ None.
 - 2026-11-14 approved
 - 2026-11-14 building
 - 2026-11-14 done
+- 2026-11-14 AC-001.8 superseded by AC-002.1
+- 2026-11-14 AC-001.6 superseded by AC-002.2

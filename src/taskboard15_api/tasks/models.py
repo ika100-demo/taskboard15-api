@@ -21,6 +21,8 @@ class TaskCreate(BaseModel):
     def _title_not_blank(cls, value: str) -> str:
         if value.strip() == "":
             raise ValueError("title must contain a non-whitespace character")
+        if "\x00" in value:
+            raise ValueError("title must not contain a NUL character")
         return value
 
     @field_validator("due_date", mode="after")
